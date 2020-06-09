@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg') }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>{{params['about_heading']}}</h1>
+            <span class="subheading">{{params['about_tagline']}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <h1>We uploads posts daily to keep you updated.</h1>
+        <p>We uploads blog posts, articals and news.</p>
+        <p>If you have any aricales, posts or anything that you think this should be reach to the people; then you can contact us by filling details in contact page or you can also contact us by social media platforms.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+  <!-- Page Header -->
+  {% set fname = 'img/' + post.img_file %}
+  <header class="masthead mb-0" style="background-image: url({{ url_for('static', filename=fname) }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>{{post.title}}</h1>
+            <h2 class="subheading">{{post.tagline}}</h2>
+            <span class="meta">A post by
+              <a href="#">{{post.credit}}</a>
+              & posted on {{post.date}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Message flashing starts here -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>{{post.content}}</p> 
+          
+
+
+
+
+          
+        </div>
+      </div>
+    </div>
+  </article>
+
+  
+
+{% endblock %}
