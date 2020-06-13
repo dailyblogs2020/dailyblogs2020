@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, session,redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_mail import Mail
+from werkzeug.utils import secure_filename
 import json
 import os
 import math
@@ -90,6 +91,21 @@ def post(post_slug):
 def about():
     return render_template('about.html', params=params)
 
+@app.route("/admin-login", methods=['GET', 'POST'])
+def adminlogin():
+    if ('user' in session and session['user'] == params['admin_user']):
+        posts = Posts.query.all()
+        return render_template('dshboard.html', params=params, posts=posts)
+
+    if request.method == 'POST':
+        username = request.form.get('uname')
+        userpass = request.form.get('pass')
+        if (username == params['admin_user'] and userpass == params['admin_password']):
+            session['user'] = username
+            posts = Posts.query.all()
+            return render_template('dshboard.html', params=params, posts=posts)
+    return render_template('adminlogin.html', params=params)
+
 @app.route("/dshboard", methods=['GET', 'POST'])
 def dashboard():
     if ('user' in session and session['user'] == params['admin_user']):
@@ -143,7 +159,7 @@ def uploader():
     if ('user' in session and session['user'] == params['admin_user']):
         if (request.method == 'POST'):
             f= request.files['file1']
-            f.save(os.path.join(app.config['UPLOAD_FOLDER']))
+            f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
             return "Uploaded successfully"
 
 @app.route("/logout")
@@ -173,7 +189,7 @@ def contact():
         entry = Contacts(name=name, phone_num=phone, email=email, msg=message, date=datetime.now())
         db.session.add(entry) 
         db.session.commit()
-        mail.send_message('New message from' + name,
+        mail.send_message('New message from-' + name,
                           recipients = [params['gmail-user']],
                           sender=email,
                           body=message + "\n" + phone
