@@ -23,8 +23,10 @@ lockfile==0.12.2
 MarkupSafe==1.1.1
 mccabe==0.6.1
 mysql==0.0.2
+mysql-connector-python==8.0.20
 mysqlclient @ file:///C:/Users/Lenovo/Downloads/mysqlclient-1.4.6-cp37-cp37m-win32.whl
 panda==0.3.1
+protobuf==3.12.2
 pylint==2.4.4
 python-daemon==2.2.4
 python-dateutil==1.5
