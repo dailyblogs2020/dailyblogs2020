@@ -174,7 +174,7 @@ def contact():
         message=request.form.get('message')
 
         entry = Contacts(name=name, phone_num=phone, email=email, msg=message, date=datetime.now())
-        db.session.add(entry) 
+        db.session.add(entry)
         db.session.commit()
         mail.send_message('New message from-' + name,
                           recipients = [params['gmail-user']],
@@ -190,3 +190,4 @@ def contact():
 
 
 app.run(debug=True)
+
