@@ -91,20 +91,7 @@ def post(post_slug):
 def about():
     return render_template('about.html', params=params)
 
-@app.route("/admin-login", methods=['GET', 'POST'])
-def adminlogin():
-    if ('user' in session and session['user'] == params['admin_user']):
-        posts = Posts.query.all()
-        return render_template('dshboard.html', params=params, posts=posts)
 
-    if request.method == 'POST':
-        username = request.form.get('uname')
-        userpass = request.form.get('pass')
-        if (username == params['admin_user'] and userpass == params['admin_password']):
-            session['user'] = username
-            posts = Posts.query.all()
-            return render_template('dshboard.html', params=params, posts=posts)
-    return render_template('adminlogin.html', params=params)
 
 @app.route("/dshboard", methods=['GET', 'POST'])
 def dashboard():
