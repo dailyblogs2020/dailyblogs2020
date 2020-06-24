@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session,redirect, flash
+from flask import Flask, render_template, request, session, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_mail import Mail
@@ -6,6 +6,9 @@ from werkzeug.utils import secure_filename
 import json
 import os
 import math
+import psycopg2
+
+
 
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
@@ -26,32 +29,47 @@ app.config.update(
 )
 mail = Mail(app)
 
-if(local_server):
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
+# if(local_server):
+#     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
+# else:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
 
-
+# POSTGRES = {
+#     'user': 'postgres',
+#     'pw': '1234',
+#     'db': 'dailyblogs2020',
+#     'host': 'localhost',
+#     'port': '5432',
+# }
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/dailyblogs2020'
 
 db = SQLAlchemy(app)
-
+db.init_app(app)
 class Contacts(db.Model):
-    sno = db.Column(db.Integer, primary_key=True)
+    sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(80), nullable=False)
     phone_num = db.Column(db.String(12), unique=True, nullable=False)
     msg = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
     email = db.Column(db.String(20), nullable=False)
 
+# def __init__(self, name, email, phone, message):
+#     self.name = name
+#     self.email = email
+#     self.phone = phone
+#     self.message = message
+
 class Posts(db.Model):
-    sno = db.Column(db.Integer, primary_key=True)
+    sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(21), unique=True, nullable=False)
     content = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
-    img_file = db.Column(db.String(12), nullable=True)
+    img_file = db.Column(db.String(12), nullable=False)
     tagline = db.Column(db.String(120), nullable=False)
     credit = db.Column(db.String(120), nullable=False)
+    post_img = db.Column(db.String(12), nullable=False)
 
 
 
@@ -106,6 +124,8 @@ def dashboard():
             session['user'] = username
             posts = Posts.query.all()
             return render_template('dshboard.html', params=params, posts=posts)
+        else:
+            return "Please enter valid username or password."
     return render_template('login.html', params=params)
 
 @app.route("/edit/<string:sno>", methods = ['GET', 'POST'])
@@ -118,10 +138,11 @@ def edit(sno):
             content = request.form.get('content')
             img_file = request.form.get('img_file')
             credit = request.form.get('credit')
+            post_img = request.form.get('post_img')
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content=content, img_file=img_file, tagline=tline, date=date, credit=credit)
+                post = Posts(title=box_title, slug=slug, content=content, img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -134,6 +155,7 @@ def edit(sno):
                 post.img_file=img_file
                 post.date=date
                 post.credit=credit
+                post.post_img=post_img
                 db.session.commit()
                 return redirect('/edit/'+sno)
 
@@ -172,8 +194,7 @@ def contact():
         email=request.form.get('email')
         phone=request.form.get('phone')
         message=request.form.get('message')
-
-        entry = Contacts(name=name, phone_num=phone, email=email, msg=message, date=datetime.now())
+        entry = Contacts(name = name, phone_num = phone, email = email, msg = message, date = datetime.now())
         db.session.add(entry)
         db.session.commit()
         mail.send_message('New message from-' + name,
@@ -186,8 +207,4 @@ def contact():
 
     return render_template('contact.html', params=params)
 
-
-
-
 app.run(debug=True)
-
