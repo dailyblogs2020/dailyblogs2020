@@ -43,6 +43,7 @@ mail = Mail(app)
 # }
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/dailyblogs2020'
+app.config['SERVER_NAME'] = '127.0.0.1:5000'
 
 db = SQLAlchemy(app)
 db.init_app(app)
