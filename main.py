@@ -42,8 +42,9 @@ mail = Mail(app)
 #     'port': '5432',
 # }
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/dailyblogs2020'
-app.config['SERVER_NAME'] = '127.0.0.1:5000'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/dailyblogs2020'
+app.config['SQLALCHEMY_DATABASE_URI'] = ' postgres://rwpdrsjhqkgyxe:29073c14c11b7dc14bb88209ff2d0674e49e490ba557a2d84bc5603ee65c465c@ec2-35-172-73-125.compute-1.amazonaws.com:5432/dd2ng0dfkks8cc'
+# app.config['SERVER_NAME'] = '127.0.0.1:5000'
 
 db = SQLAlchemy(app)
 db.init_app(app)
@@ -185,8 +186,6 @@ def delete(sno):
         db.session.commit()
     return redirect('/dshboard')
 
-
-
 @app.route("/contact", methods = ['GET', 'POST'])
 def contact():
     if(request.method=='POST'):
@@ -208,4 +207,5 @@ def contact():
 
     return render_template('contact.html', params=params)
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)

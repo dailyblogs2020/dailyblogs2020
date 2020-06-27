@@ -2,8 +2,8 @@
   "params":
   {
     "local_server": "True",
-    "prod_uri": "mysql://root:@localhost/dailyblogs",
-    "local_uri": "mysql://root:@localhost/dailyblogs",
+    "prod_uri": "postgres://rwpdrsjhqkgyxe:29073c14c11b7dc14bb88209ff2d0674e49e490ba557a2d84b\nc5603ee65c465c@ec2-35-172-73-125.compute-1.amazonaws.com:5432/dd2ng0dfkks8cc",
+    "local_uri": "postgresql://postgres:1234@localhost/dailyblogs2020",
     "fb_url": "https://facebook.com/dailyblogs",
     "twitter_url": "https://twitter.com/dailyblogs2020",
     "gh_url": "https://github.com/dailyblogs2020",
