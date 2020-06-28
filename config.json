@@ -2,9 +2,9 @@
   "params":
   {
     "local_server": "True",
-    "prod_uri": "postgres://amgswqthosfocv:d55d8e9e987e0483b86f40cda95bd5822448277d1445254def0d5208e544c010@ec2-3-222-30-53.compute-1.amazonaws.com:5432/d9n78r6ok7e0e4",
+    "prod_uri": "postgres://gudltyuezeeseh:69c133c4f8c395902440589825c829a3eebb109a2db9f9ad7431d0e214251668@ec2-54-211-210-149.compute-1.amazonaws.com:5432/ddvpjhn1lsdjq9",
     "local_uri": "postgresql://postgres:1234@localhost/dailyblogs2020",
-    "fb_url": "https://facebook.com/dailyblogs",
+    "fb_url": "https://facebook.com/dailyblogs2020",
     "twitter_url": "https://twitter.com/dailyblogs2020",
     "gh_url": "https://github.com/dailyblogs2020",
     "insta_url": "https://instagram.com/dailyblogs2020",
@@ -21,7 +21,7 @@
     "gmail-user": "dailyblogs.team@gmail.com",
     "gmail-password": "dailyblogs1298",
     "no_of_posts": 2,
-    "login_image": "login.svg",
+    "login_image": "20200608_110050_0000.png",
     "admin_user": "harry",
     "admin_password": "subscribenow",
     "upload_location": "C:\\Users\\Lenovo\\PycharmProjects\\first-trial\\static"

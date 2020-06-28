@@ -6,14 +6,11 @@ from werkzeug.utils import secure_filename
 import json
 import os
 import math
-import psycopg2
-
 
 
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
 
-# local_server = True
 server = 'prod'
 app=Flask(__name__)
 
@@ -34,17 +31,10 @@ if server == 'local':
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
 
-# POSTGRES = {
-#     'user': 'postgres',
-#     'pw': '1234',
-#     'db': 'dailyblogs2020',
-#     'host': 'localhost',
-#     'port': '5432',
-# }
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/dailyblogs2020'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rwpdrsjhqkgyxe:29073c14c11b7dc14bb88209ff2d0674e49e490ba557a2d84bc5603ee65c465c@ec2-35-172-73-125.compute-1.amazonaws.com:5432/dd2ng0dfkks8cc'
-# app.config['SERVER_NAME'] = '127.0.0.1:5000'
+
 
 db = SQLAlchemy(app)
 db.init_app(app)
@@ -55,12 +45,6 @@ class Contacts(db.Model):
     msg = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
     email = db.Column(db.String(20), nullable=False)
-
-# def __init__(self, name, email, phone, message):
-#     self.name = name
-#     self.email = email
-#     self.phone = phone
-#     self.message = message
 
 class Posts(db.Model):
     sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
