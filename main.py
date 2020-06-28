@@ -32,7 +32,7 @@ mail = Mail(app)
 if server == 'local':
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
 else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://rwpdrsjhqkgyxe:29073c14c11b7dc14bb88209ff2d0674e49e490ba557a2d84bc5603ee65c465c@ec2-35-172-73-125.compute-1.amazonaws.com:5432/dd2ng0dfkks8cc'
+    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
 
 # POSTGRES = {
 #     'user': 'postgres',

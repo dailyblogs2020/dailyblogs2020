@@ -2,7 +2,7 @@
   "params":
   {
     "local_server": "True",
-    "prod_uri": "postgres://rwpdrsjhqkgyxe:29073c14c11b7dc14bb88209ff2d0674e49e490ba557a2d84b\nc5603ee65c465c@ec2-35-172-73-125.compute-1.amazonaws.com:5432/dd2ng0dfkks8cc",
+    "prod_uri": "postgres://amgswqthosfocv:d55d8e9e987e0483b86f40cda95bd5822448277d1445254def0d5208e544c010@ec2-3-222-30-53.compute-1.amazonaws.com:5432/d9n78r6ok7e0e4",
     "local_uri": "postgresql://postgres:1234@localhost/dailyblogs2020",
     "fb_url": "https://facebook.com/dailyblogs",
     "twitter_url": "https://twitter.com/dailyblogs2020",
