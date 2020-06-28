@@ -2,12 +2,12 @@
   "params":
   {
     "local_server": "True",
-    "prod_uri": "postgres://gudltyuezeeseh:69c133c4f8c395902440589825c829a3eebb109a2db9f9ad7431d0e214251668@ec2-54-211-210-149.compute-1.amazonaws.com:5432/ddvpjhn1lsdjq9",
+    "prod_uri": "postgres://pvmnkwrjivgusu:3ea5294627f09b6845fecabad632724a8ab4f6b1c249e6019e762eb5d4a55087@ec2-34-206-31-217.compute-1.amazonaws.com:5432/dhoromojcmdfr",
     "local_uri": "postgresql://postgres:1234@localhost/dailyblogs2020",
     "fb_url": "https://facebook.com/dailyblogs2020",
     "twitter_url": "https://twitter.com/dailyblogs2020",
     "gh_url": "https://github.com/dailyblogs2020",
-    "insta_url": "https://instagram.com/dailyblogs2020",
+    "insta_url": "https://instagram.com/dailyblogs_2020",
     "pinterest_url": "https://pinterest.com/dailyblogs2020",
     "app_title": "Daily Blogs-2020",
     "corner_title": "dailyblogs2020.com",
