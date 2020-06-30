@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import json
 import os
 import math
+import psycopg2
 
 
 with open('config.json', 'r') as c:
@@ -26,11 +27,12 @@ app.config.update(
 )
 mail = Mail(app)
 
-if server == 'local':
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
-
+# if server == 'local':
+#     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
+# else:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
+DATABASE_URL = os.environ['postgres://ovrbzhegwiovax:bd3e9f211a40013ae748ff9d49d86c8efe164b6b24bac372916cf71642eef78c@ec2-34-202-88-122.compute-1.amazonaws.com:5432/dbqjer5r92drnr']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
