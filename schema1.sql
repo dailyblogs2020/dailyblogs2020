@@ -1,6 +1,6 @@
 CREATE TABLE contacts
 (
-    sno integer NOT NULL DEFAULT nextval('contacts_sno_seq'::regclass),
+    sno integer NOT NULL,
     name text COLLATE pg_catalog."default" NOT NULL,
     phone_num character varying(50) COLLATE pg_catalog."default" NOT NULL,
     msg text COLLATE pg_catalog."default" NOT NULL,

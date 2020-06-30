@@ -1,6 +1,6 @@
 CREATE TABLE posts
 (
-    sno integer NOT NULL DEFAULT nextval('posts_sno_seq'::regclass),
+    sno integer NOT NULL,
     title text COLLATE pg_catalog."default" NOT NULL,
     tagline text COLLATE pg_catalog."default" NOT NULL,
     slug character varying(50) COLLATE pg_catalog."default" NOT NULL,
