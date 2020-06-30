@@ -181,7 +181,7 @@ def contact():
         entry = Contacts(name = name, phone_num = phone, email = email, msg = message, date = datetime.now())
         db.session.add(entry)
         db.session.commit()
-        mail.send_message('New message from-' + name,
+        mail.send_message('New message from ' + name,
                           recipients = [params['gmail-user']],
                           sender=email,
                           body=message + "\n" + phone
