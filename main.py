@@ -10,7 +10,7 @@ import math
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
 
-server = 'local'
+server = 'prod'
 app=Flask(__name__)
 
 app.secret_key = 'super-secret-key'
