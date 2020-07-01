@@ -1,3 +1,4 @@
+CREATE SEQUENCE posts_sno_seq;
 CREATE TABLE posts
 (
     sno integer NOT NULL DEFAULT nextval('posts_sno_seq'::regclass),

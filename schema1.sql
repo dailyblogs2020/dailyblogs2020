@@ -1,3 +1,4 @@
+CREATE SEQUENCE contacts_sno_seq;
 CREATE TABLE contacts
 (
     sno integer NOT NULL DEFAULT nextval('contacts_sno_seq'::regclass),
