@@ -4,7 +4,7 @@
     "local_server": "True",
     "prod_uri": "postgres://yizavtynwgjfcs:aff6e5ec08f5035f2152457497cd4da56d6cecce2d7e0f83b94f1121b8af3f8b@ec2-52-20-248-222.compute-1.amazonaws.com:5432/dcot1pjik8e8oj",
     "local_uri": "postgresql://postgres:1234@localhost/dailyblogs2020",
-    "fb_url": "https://facebook.com/dailyblogs2020",
+    "fb_url": "https://www.facebook.com/Daily-Blogs-2020-103938871385746/",
     "twitter_url": "https://twitter.com/dailyblogs2020",
     "gh_url": "https://github.com/dailyblogs2020",
     "insta_url": "https://instagram.com/dailyblogs_2020",
