@@ -8,4 +8,4 @@ CREATE TABLE contacts
     date date DEFAULT CURRENT_DATE,
     email character varying(50) COLLATE pg_catalog."default",
     CONSTRAINT contacts_pkey PRIMARY KEY (sno)
-)
+)2

@@ -2,6 +2,18 @@
 {% block body %}
 
   <!-- Page Header -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171499283-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171499283-1');
+</script>
+
+  
   <header class="masthead" style="background-image: url({{ url_for('static', filename='img/20200627_095324_0000.png') }})">
     <div class="overlay"></div>
     

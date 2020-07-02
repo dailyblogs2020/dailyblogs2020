@@ -3,6 +3,17 @@
 
 <head>
 
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171499283-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171499283-1');
+</script>
+
+
   <link rel="icon" href="{{ url_for('static', filename='img/20200608_232203_0000.png') }}">
 
 
@@ -48,6 +59,9 @@
             <a class="nav-link" href="/contact">Contact</a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="/terms-conditions">Terms & conditions</a>
+          </li>
          
 
         </ul>

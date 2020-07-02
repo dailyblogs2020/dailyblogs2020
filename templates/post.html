@@ -5,6 +5,18 @@
 
 
   <!-- Page Header -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171499283-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171499283-1');
+</script>
+
+  
   {% set fname = 'img/' + post.img_file %}
   <header class="masthead mb-0" style="background-image: url({{ url_for('static', filename=fname) }})">
     <div class="overlay"></div>

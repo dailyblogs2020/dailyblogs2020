@@ -56,7 +56,9 @@ class Posts(db.Model):
     credit = db.Column(db.String(120), nullable=False)
     post_img = db.Column(db.String(12), nullable=False)
 
-
+@app.route("/terms-conditions")
+def tnc():
+    return  render_template('tnc.html', params=params)
 
 @app.route("/")
 def home():
