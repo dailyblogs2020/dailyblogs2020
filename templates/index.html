@@ -13,7 +13,7 @@
   gtag('config', 'UA-171499283-1');
 </script>
 
-  
+
   <header class="masthead mb-0" style="background-image: url({{ url_for('static', filename='img/20200628_183350_0000.png') }})">
     <div class="overlay"></div>
     <div class="container">
@@ -60,7 +60,7 @@
             </h3>
           </a>
           <p class="post-meta">A post by
-            <a href="#">{{post.credit}}</a>
+            <a href="{{post.href_link}}" target="_blank" style="color:#000080;">{{post.credit}}</a>
             </p>
         </div>
         {{post.content[0:143]}}...

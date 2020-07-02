@@ -10,7 +10,7 @@ import math
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
 
-server = 'prod'
+server = 'local'
 app=Flask(__name__)
 
 app.secret_key = 'super-secret-key'
@@ -25,7 +25,7 @@ app.config.update(
 )
 mail = Mail(app)
 
-if server == 'local':
+if server == 'prod':
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
@@ -50,6 +50,8 @@ class Posts(db.Model):
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(21), unique=True, nullable=False)
     content = db.Column(db.String(120), nullable=False)
+    conclusion = db.Column(db.String(120), nullable=False)
+    href_link = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
     img_file = db.Column(db.String(12), nullable=False)
     tagline = db.Column(db.String(120), nullable=False)
@@ -123,13 +125,15 @@ def edit(sno):
             tline = request.form.get('tline')
             slug = request.form.get('slug')
             content = request.form.get('content')
+            conclusion = request.form.get('conclusion')
+            href_link = request.form.get('href_link')
             img_file = request.form.get('img_file')
             credit = request.form.get('credit')
             post_img = request.form.get('post_img')
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content=content, img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
+                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link, img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -138,6 +142,8 @@ def edit(sno):
                 post.title=box_title
                 post.slug=slug
                 post.content=content
+                post.conclusion=conclusion
+                post.href_link = href_link
                 post.tagline=tline
                 post.img_file=img_file
                 post.date=date

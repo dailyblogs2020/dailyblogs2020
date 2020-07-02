@@ -13,7 +13,7 @@
   gtag('config', 'UA-171499283-1');
 </script>
 
-  
+
   <header class="masthead" style="background-image: url({{ url_for('static', filename='img/home-bg.jpg') }})">
     <div class="overlay"></div>
     <div class="container">
@@ -72,6 +72,14 @@
 
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
+              <label>Conclusion</label>
+              <textarea rows="5" class="form-control" placeholder="Conclusion" id="conclusion" name="conclusion" required data-validation-required-message="Please enter a message.">{{post.conclusion}}</textarea>
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
               <label>Image File</label>
               <input class="form-control" placeholder="Image Filename" id="img_file" name="img_file" value="{{post.img_file}}" >
               <p class="help-block text-danger"></p>
@@ -89,10 +97,18 @@
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Post Image</label>
-              <input type="text" class="form-control" placeholder="Post Image" id="post_img" name="post_img" required data-validation-required-message="Please enter a post imgage file name." value="{{post.post_img}}">
+              <input type="text" class="form-control" placeholder="Post Image" id="post_img" name="post_img" required data-validation-required-message="Please enter a post image file name." value="{{post.post_img}}">
               <p class="help-block text-danger"></p>
             </div>
           </div>
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Href Link</label>
+              <input type="text" class="form-control" placeholder="Href Link" id="href_link" name="href_link" required data-validation-required-message="Please enter a post image file name." value="{{post.href_link}}">
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>          
 
           <br>
           <div id="success"></div>

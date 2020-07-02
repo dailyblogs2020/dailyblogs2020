@@ -16,7 +16,7 @@
   gtag('config', 'UA-171499283-1');
 </script>
 
-  
+
   {% set fname = 'img/' + post.img_file %}
   <header class="masthead mb-0" style="background-image: url({{ url_for('static', filename=fname) }})">
     <div class="overlay"></div>
@@ -27,7 +27,7 @@
             <h1>{{post.title}}</h1>
             <h2 class="subheading">{{post.tagline}}</h2>
             <span class="meta">A post by
-              <a href="#">{{post.credit}}</a>
+              <a href="{{post.href_link}}">{{post.credit}}</a>
               & posted on {{post.date}}</span>
           </div>
         </div>
@@ -62,6 +62,8 @@
         <p>{{post.content}}</p> 
           
 
+         <h2 style="color:MediumSeaGreen;">CONCLUSION:</h2>
+        <h4>{{post.conclusion}}</h4>
 
 
 
