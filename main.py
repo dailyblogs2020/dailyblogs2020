@@ -62,6 +62,10 @@ class Posts(db.Model):
 def tnc():
     return  render_template('tnc.html', params=params)
 
+@app.route("/privacy-policy")
+def pp():
+    return  render_template('privacypolicy.html', params=params)
+
 @app.route("/")
 def home():
     flash("Stay home, stay safe!", "danger")

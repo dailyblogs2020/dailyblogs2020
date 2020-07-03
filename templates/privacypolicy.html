@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+
+  <!-- Page Header -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171499283-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-171499283-1');
+</script>
+
+  
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/20200703_204617_0000.png') }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Privacy Policy</h1>
+            <span class="subheading">Please read Privacy Policy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it’s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
+
+       
+        
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock %}
