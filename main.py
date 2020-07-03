@@ -63,7 +63,7 @@ def tnc():
     return  render_template('tnc.html', params=params)
 
 @app.route("/privacy-policy")
-def pp():
+def privacypolicy():
     return  render_template('privacypolicy.html', params=params)
 
 @app.route("/")
