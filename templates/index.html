@@ -47,9 +47,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        
 
-{% for post in posts %}
+{% for post in posts %}       
+{% set fname = 'img/' + post.post_img %}
         <div class="post-preview">
           <a href="/post/{{post.slug}}">
             <h2 class="post-title">
@@ -62,7 +62,9 @@
           <p class="post-meta">A post by
             <a href="{{post.href_link}}" target="_blank" style="color:#000080;">{{post.credit}}</a>
             </p>
+            <img src="{{ url_for('static', filename=fname) }}" width="200" height="100">
         </div>
+
         {{post.content[0:143]}}...
         <hr>
         </li></a>

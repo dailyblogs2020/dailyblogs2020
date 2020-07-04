@@ -10,7 +10,7 @@ import math
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
 
-server = 'local'
+server = 'prod'
 app=Flask(__name__)
 
 app.secret_key = 'super-secret-key'
@@ -25,7 +25,7 @@ app.config.update(
 )
 mail = Mail(app)
 
-if server == 'prod':
+if server == 'local':
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
