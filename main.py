@@ -25,7 +25,7 @@ app.config.update(
 )
 mail = Mail(app)
 
-if server == 'prod':
+if server == 'local':
     app.config['SQLALCHEMY_DATABASE_URI'] = params['local_uri']
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = params['prod_uri']
