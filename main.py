@@ -55,6 +55,7 @@ class Posts(db.Model):
     date = db.Column(db.String(12), nullable=True)
     img_file = db.Column(db.String(12), nullable=False)
     tagline = db.Column(db.String(120), nullable=False)
+    post_link = db.Column(db.String(120), nullable=False)
     credit = db.Column(db.String(120), nullable=False)
     post_img = db.Column(db.String(12), nullable=False)
 
@@ -133,11 +134,12 @@ def edit(sno):
             href_link = request.form.get('href_link')
             img_file = request.form.get('img_file')
             credit = request.form.get('credit')
+            post_link = request.form.get('post_link')
             post_img = request.form.get('post_img')
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link, img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
+                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link, post_link=post_link, img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -152,6 +154,7 @@ def edit(sno):
                 post.img_file=img_file
                 post.date=date
                 post.credit=credit
+                post.post_link = post_link
                 post.post_img=post_img
                 db.session.commit()
                 return redirect('/edit/'+sno)

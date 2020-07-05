@@ -6,6 +6,7 @@ CREATE TABLE posts
     tagline text COLLATE pg_catalog."default" NOT NULL,
     slug character varying(50) COLLATE pg_catalog."default" NOT NULL,
     href_link character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    post_link character varying(50) COLLATE pg_catalog."default" NOT NULL,
     content text COLLATE pg_catalog."default" NOT NULL,
     conclusion text COLLATE pg_catalog."default" NOT NULL,
     img_file character varying(50) COLLATE pg_catalog."default" NOT NULL,
