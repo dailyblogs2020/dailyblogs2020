@@ -10,7 +10,7 @@ import math
 with open('config.json', 'r') as c:
     params = json.load(c)["params"]
 
-server = 'prod'
+server = 'local'
 app=Flask(__name__)
 
 app.secret_key = 'super-secret-key'
@@ -53,9 +53,9 @@ class Posts(db.Model):
     conclusion = db.Column(db.String(120), nullable=False)
     href_link = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
+    post_link = db.Column(db.String(120), nullable=False)
     img_file = db.Column(db.String(12), nullable=False)
     tagline = db.Column(db.String(120), nullable=False)
-    post_link = db.Column(db.String(120), nullable=False)
     credit = db.Column(db.String(120), nullable=False)
     post_img = db.Column(db.String(12), nullable=False)
 
@@ -132,14 +132,14 @@ def edit(sno):
             content = request.form.get('content')
             conclusion = request.form.get('conclusion')
             href_link = request.form.get('href_link')
+            post_link = request.form.get('post_link')
             img_file = request.form.get('img_file')
             credit = request.form.get('credit')
-            post_link = request.form.get('post_link')
             post_img = request.form.get('post_img')
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link, post_link=post_link, img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
+                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link,post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -150,11 +150,11 @@ def edit(sno):
                 post.content=content
                 post.conclusion=conclusion
                 post.href_link = href_link
+                post.post_link = post_link
                 post.tagline=tline
                 post.img_file=img_file
                 post.date=date
                 post.credit=credit
-                post.post_link = post_link
                 post.post_img=post_img
                 db.session.commit()
                 return redirect('/edit/'+sno)
