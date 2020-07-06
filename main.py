@@ -49,7 +49,18 @@ class Posts(db.Model):
     sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(21), unique=True, nullable=False)
-    content = db.Column(db.String(120), nullable=False)
+    content1 = db.Column(db.String(120), nullable=False)
+    content2 = db.Column(db.String(120), nullable=False)
+
+    content3 = db.Column(db.String(120), nullable=False)
+    content4 = db.Column(db.String(120), nullable=False)
+
+    content5 = db.Column(db.String(120), nullable=False)
+    content6 = db.Column(db.String(120), nullable=False)
+
+    content7 = db.Column(db.String(120), nullable=False)
+    content8 = db.Column(db.String(120), nullable=False)
+
     conclusion = db.Column(db.String(120), nullable=False)
     href_link = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
@@ -129,7 +140,18 @@ def edit(sno):
             box_title = request.form.get('title')
             tline = request.form.get('tline')
             slug = request.form.get('slug')
-            content = request.form.get('content')
+            content1 = request.form.get('content1')
+            content2 = request.form.get('content2')
+
+            content3 = request.form.get('content3')
+            content4 = request.form.get('content4')
+
+            content5 = request.form.get('content5')
+            content6 = request.form.get('content6')
+
+            content7 = request.form.get('content7')
+            content8 = request.form.get('content8')
+
             conclusion = request.form.get('conclusion')
             href_link = request.form.get('href_link')
             post_link = request.form.get('post_link')
@@ -139,7 +161,7 @@ def edit(sno):
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link,post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
+                post = Posts(title=box_title, slug=slug, content1=content1, content2=content2, content3=content3, content4=content4,content5=content5, content6=content6, content7=content7, content8=content8,conclusion=conclusion, href_link=href_link,post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -147,7 +169,19 @@ def edit(sno):
                 post = Posts.query.filter_by(sno=sno).first()
                 post.title=box_title
                 post.slug=slug
-                post.content=content
+
+                post.content1 =content1
+                post.content2= content2
+
+                post.content3 = content3
+                post.content4 = content4
+
+                post.content5 = content5
+                post.content6 = content6
+
+                post.content7 = content7
+                post.content8 = content8
+
                 post.conclusion=conclusion
                 post.href_link = href_link
                 post.post_link = post_link
