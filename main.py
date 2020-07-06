@@ -49,10 +49,7 @@ class Posts(db.Model):
     sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(21), unique=True, nullable=False)
-
-    content1 = db.Column(db.String(120), nullable=False)
-
-
+    content = db.Column(db.String(120), nullable=False)
     conclusion = db.Column(db.String(120), nullable=False)
     href_link = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
@@ -132,9 +129,7 @@ def edit(sno):
             box_title = request.form.get('title')
             tline = request.form.get('tline')
             slug = request.form.get('slug')
-            content1 = request.form.get('content1')
-
-
+            content = request.form.get('content')
             conclusion = request.form.get('conclusion')
             href_link = request.form.get('href_link')
             post_link = request.form.get('post_link')
@@ -144,7 +139,7 @@ def edit(sno):
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content1=content1, conclusion=conclusion, href_link=href_link,post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
+                post = Posts(title=box_title, slug=slug, content=content, conclusion=conclusion, href_link=href_link, post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -152,10 +147,7 @@ def edit(sno):
                 post = Posts.query.filter_by(sno=sno).first()
                 post.title=box_title
                 post.slug=slug
-
-                post.content1 = content1
-
-
+                post.content = content
                 post.conclusion=conclusion
                 post.href_link = href_link
                 post.post_link = post_link

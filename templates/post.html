@@ -59,13 +59,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          <hr>
           <img src="{{ url_for('static', filename=fname) }}" width="400" height="230">
          <hr> 
-        <h3>{{post.content1}}</h3>
+        <h3>{{post.content}}</h3>
+       
         
-        
-
-        <hr>
         <a href="{{post.post_link}}" target="_blank">{{post.post_link}}</a>
         <hr> 
 
