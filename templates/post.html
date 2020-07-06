@@ -61,10 +61,20 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <hr>
           <img src="{{ url_for('static', filename=fname) }}" width="400" height="230">
-         <hr> 
-        <p>{{post.content}}</p>
-       
+         
+        <h3>{{post.content}}</h3>
+        <p>{{post.para}}</p>
+
+        <h4>{{post.cont_one}}</h4>
+        <p>{{post.para_one}}</p>
         
+        <h4>{{post.cont_two}}</h4>
+        <p>{{post.para_two}}</p>
+
+        <h4>{{post.cont_three}}</h4>
+        <p>{{post.para_three}}</p>
+       
+        <hr> 
         <a href="{{post.post_link}}" target="_blank">{{post.post_link}}</a>
         <hr> 
 
