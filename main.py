@@ -49,6 +49,7 @@ class Posts(db.Model):
     sno = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title = db.Column(db.String(80), nullable=False)
     slug = db.Column(db.String(21), unique=True, nullable=False)
+
     content1 = db.Column(db.String(120), nullable=False)
     content2 = db.Column(db.String(120), nullable=False)
 
@@ -170,8 +171,8 @@ def edit(sno):
                 post.title=box_title
                 post.slug=slug
 
-                post.content1 =content1
-                post.content2= content2
+                post.content1 = content1
+                post.content2 = content2
 
                 post.content3 = content3
                 post.content4 = content4
