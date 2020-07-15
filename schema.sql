@@ -15,7 +15,6 @@ CREATE TABLE posts
 	para_two text COLLATE pg_catalog."default" NOT NULL,
 	cont_three text COLLATE pg_catalog."default" NOT NULL,
 	para_three text COLLATE pg_catalog."default" NOT NULL,
-
     conclusion text COLLATE pg_catalog."default" NOT NULL,
     img_file character varying(50) COLLATE pg_catalog."default" NOT NULL,
     credit text COLLATE pg_catalog."default" NOT NULL,
