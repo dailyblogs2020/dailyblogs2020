@@ -27,7 +27,7 @@
             <h1>{{post.title}}</h1>
             <h2 class="subheading">{{post.tagline}}</h2>
             <span class="meta">A post by
-              <a href="{{post.href_link}}">{{post.credit}}</a>
+              <a href="{{post.href_link}}" target="_blank">{{post.credit}}</a>
               & posted on {{post.date}}</span>
           </div>
         </div>
@@ -62,6 +62,7 @@
           <hr>
           <img src="{{ url_for('static', filename=fname) }}" width="100%" height="mx-auto">
          <hr>
+         
         <h3>{{post.content}}</h3>
         <p>{{post.para}}</p>
 
