@@ -15,6 +15,37 @@
 </script>
 
 
+
+
+
+<style>
+.button {
+  padding: 10px 10px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  background-color: #0085A1;
+  border: none;
+  border-radius: 0px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
+
+
+
+
+
   <header class="masthead mb-0" style="background-image: url({{ url_for('static', filename='img/20200703_201635_0000.png') }})">
     <div class="overlay"></div>
     <div class="container">
@@ -77,9 +108,9 @@
       
         <!-- Pager -->
         <div class="clearfix">
-          <a class="btn btn-primary float-right" href="{{next}}">Next &rarr;</a>
+          <a class="btn btn-primary float-right button" href="{{next}}">Next &rarr;</a>
         
-          <a class="btn btn-primary float-left" href="{{prev}}"> &larr; Previous</a>
+          <a class="btn btn-primary float-left button" href="{{prev}}"> &larr; Previous</a>
         </div>
 
       </div>
