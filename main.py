@@ -60,6 +60,9 @@ class Posts(db.Model):
     cont_three = db.Column(db.String(120), nullable=False)
     para_three = db.Column(db.String(120), nullable=False)
 
+    cont_four = db.Column(db.String(120), nullable=False)
+    para_four = db.Column(db.String(120), nullable=False)
+
     conclusion = db.Column(db.String(120), nullable=False)
     href_link = db.Column(db.String(120), nullable=False)
     date = db.Column(db.String(12), nullable=True)
@@ -150,6 +153,9 @@ def edit(sno):
             cont_three = request.form.get('cont_three')
             para_three = request.form.get('para_three')
 
+            cont_four = request.form.get('cont_four')
+            para_four = request.form.get('para_four')
+
             conclusion = request.form.get('conclusion')
             href_link = request.form.get('href_link')
             post_link = request.form.get('post_link')
@@ -159,7 +165,7 @@ def edit(sno):
             date = datetime.now()
 
             if sno=='0':
-                post = Posts(title=box_title, slug=slug, content=content, para=para, cont_one=cont_one, para_one=para_one, cont_two=cont_two, para_two=para_two, cont_three=cont_three, para_three=para_three, conclusion=conclusion, href_link=href_link, post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
+                post = Posts(title=box_title, slug=slug, content=content, para=para, cont_one=cont_one, para_one=para_one, cont_two=cont_two, para_two=para_two, cont_three=cont_three, para_three=para_three, cont_four=cont_four, para_four=para_four, conclusion=conclusion, href_link=href_link, post_link=post_link ,img_file=img_file, tagline=tline, date=date, credit=credit, post_img = post_img)
                 db.session.add(post)
                 db.session.commit()
 
@@ -175,6 +181,8 @@ def edit(sno):
                 post.para_two = para_two
                 post.cont_three = cont_three
                 post.para_three = para_three
+                post.cont_four = cont_four
+                post.para_four = para_four
                 post.conclusion=conclusion
                 post.href_link = href_link
                 post.post_link = post_link
