@@ -171,7 +171,7 @@ def edit(sno):
                 db.session.commit()
 
             else:
-                post = Posts.query.filter_by(sno=sno).first()
+                post = Posts.query.filter_by(sno=sno).order_by(desc(Posts.sno)).first()
                 post.title=box_title
                 post.slug=slug
                 post.content = content
