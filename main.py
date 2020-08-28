@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 from datetime import datetime
 from flask_mail import Mail
 from werkzeug.utils import secure_filename
@@ -83,7 +84,7 @@ def privacypolicy():
 @app.route("/")
 def home():
     flash("Stay home, stay safe!", "danger")
-    posts = Posts.query.filter_by().all()
+    posts = Posts.query.filter_by().order_by(desc(Posts.sno)).all()
     last = math.ceil(len(posts)/int(params['no_of_posts']))
 
 
