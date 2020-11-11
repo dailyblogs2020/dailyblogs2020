@@ -234,7 +234,7 @@ def contact():
         mail.send_message('New message from: ' + name,
                           recipients = [params['gmail-user']],
                           sender=email,
-                          body=message + "\n" + phone
+                          body='Message: ' + message + "\n" + 'Contact: ' + phone
                           )
 
         flash("Thanks for submitting your details. We will get back to you soon.", "success")
