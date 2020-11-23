@@ -143,8 +143,10 @@ def edit(sno):
             box_title = request.form.get('title')
             tline = request.form.get('tline')
             slug = request.form.get('slug')
+
             content = request.form.get('content')
             para = request.form.get('para')
+            
             cont_one = request.form.get('cont_one')
             para_one = request.form.get('para_one')
 
@@ -205,7 +207,7 @@ def uploader():
         if (request.method == 'POST'):
             f= request.files['file1']
             f.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename)))
-            return "Uploaded successfully"
+            return """<h1 style="color: green";>UPLOADED SUCCESSFULLY</h1>"""
 
 @app.route("/logout")
 def logout():
