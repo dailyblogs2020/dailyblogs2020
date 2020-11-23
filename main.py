@@ -83,7 +83,7 @@ def privacypolicy():
 
 @app.route("/")
 def home():
-    flash("Stay home, stay safe!", "danger")
+    # flash("Stay home, stay safe!", "danger")
     posts = Posts.query.filter_by().order_by(desc(Posts.sno)).all()
     last = math.ceil(len(posts)/int(params['no_of_posts']))
 
