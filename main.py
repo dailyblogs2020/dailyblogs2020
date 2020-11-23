@@ -109,7 +109,7 @@ def home():
 
 @app.route("/post/<string:post_slug>", methods=['GET'])
 def post(post_slug):
-    flash("Let us know if you have any query or suggestion. Thank-you!", "primary")
+    # flash("Let us know if you have any query or suggestion. Thank-you!", "primary")
     post = Posts.query.filter_by(slug=post_slug).first()
     return render_template('post.html', params=params, post=post)
 
