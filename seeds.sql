@@ -1,3 +1,3 @@
 INSERT INTO posts(
-	sno, title, tagline, slug, href_link, post_link, content, para, cont_one, para_one, cont_two, para_two, cont_three, para_three, img_file, credit, conclusion, post_img, date)
-	VALUES (1, 'first title', 'first tagline', 'first-post','https://www.youtube.com/watch?v=Q8rN3JKqUc8', 'https://www.youtube.com/watch?v=Q8rN3JKqUc8', 'content', 'para', 'cont_one', 'para_one', 'cont_two', 'para_two', 'cont_three', 'para_three','home-bg.jpg', 'admin', 'conclusion of a first post', 'home-bg.jpg', '2020-06-30');
+	sno, title, tagline, slug, href_link, post_link, content, para, cont_one, para_one, cont_two, para_two, cont_three, para_three, cont_four, para_four, cont_five, para_five, img_file, credit, conclusion, post_img, date)
+	VALUES (1, 'first title', 'first tagline', 'first-post','https://www.youtube.com/watch?v=Q8rN3JKqUc8', 'https://www.youtube.com/watch?v=Q8rN3JKqUc8', 'content', 'para', 'cont_one', 'para_one', 'cont_two', 'para_two', 'cont_three', 'para_three', 'cont_four', 'para_four', 'cont_five', 'para_five', 'home-bg.jpg', 'admin', 'conclusion of a first post', 'home-bg.jpg', '2020-06-30');
